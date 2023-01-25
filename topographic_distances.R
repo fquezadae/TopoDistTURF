@@ -29,7 +29,7 @@ library(foreign)
 
 # sp_df <- shapefile("C:/Users/fequezad/OneDrive/UMass/Dissertation/02 TURFs Chile/TopoDist/srtm_v3_63cae2de2b67356d/srtm_v3_63cae2de2b67356d.shp") 
 chile_bound <- rgeoboundaries::geoboundaries("Chile")
-elevation <- elevatr::get_elev_raster(locations = chile_bound, z = 4, clip = "bbox", expand = 1)
+elevation <- elevatr::get_elev_raster(locations = chile_bound, z = 6, clip = "bbox", expand = 1)
 
 ## Calculate topographic distances from port of jurisdiction and TURFs.
 cord_navy <- read.csv(file ="C:/Users/fequezad/OneDrive/UMass/Dissertation/02 TURFs Chile/Data/Coordenadas/Capitanias de puerto/Navy_coordinates.csv")
@@ -92,7 +92,7 @@ df <- cord_turf %>%
 
 
 df_dist <- tibble::tibble(id_area = integer(),
-                  td_navyj_km_4 = numeric())
+                  td_navyj_km_6 = numeric())
 
 for (j in 1:nrow(df)) {
   gc()
@@ -104,12 +104,12 @@ for (j in 1:nrow(df)) {
   
   df_dist <- df_dist %>%
     tibble::add_row(id_area = as.integer(df[j, 2]),
-            td_navyj_km_4 = as.numeric(tdist[1,2]/1000))
+            td_navyj_km_6 = as.numeric(tdist[1,2]/1000))
   rm(xy, tdist)
   perc <- (j/nrow(df))*100
   print(paste("Row = ",j))
   print(paste(perc,"%"))
-  write.csv(df_dist,"C:/Users/fequezad/OneDrive/UMass/Dissertation/02 TURFs Chile/TopoDist/data_td4.csv", row.names = FALSE)
+  write.csv(df_dist,"C:/Users/fequezad/OneDrive/UMass/Dissertation/02 TURFs Chile/TopoDist/data_td6.csv", row.names = FALSE)
 }
 
 rm(df_dist, df, j)
