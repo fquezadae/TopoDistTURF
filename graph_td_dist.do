@@ -12,7 +12,7 @@ sum dif
 **** 2.01 km
 
 histogram td_navyj_km_4, frequency addplot((scatteri 100 10 0 10, recast(line) lcolor(red) ///
-lwidth(medthick))) xtitle("Topographic distance to port captainship within jurisdiction (km)") ///
+lwidth(medthick))) xtitle("Shortest topographic distance to port captainship (km)") ///
 legend(order(1 "Frequency" 2 "Threshold (10 km)")) scheme(lean1) width(10) start(0) 
 
 graph export "C:\Users\fequezad\OneDrive\UMass\Dissertation\02 TURFs Chile\TopoDistTURF\histogram.pdf", as(pdf) name("Graph") replace
@@ -31,7 +31,7 @@ sum dif
 **** 2.01 km
 
 histogram td_navyj_km_5, frequency addplot((scatteri 80 10 0 10, recast(line) lcolor(red) ///
-lwidth(medthick))) xtitle("Topographic distance to port captainship with jurisdiction (km)") ///
+lwidth(medthick))) xtitle("Shortest topographic distance to port captainship (km)") ///
 legend(order(1 "Frequency" 2 "Threshold (10 km)")) scheme(lean1) width(10) start(0)
 
 graph export "C:\Users\fequezad\OneDrive\UMass\Dissertation\02 TURFs Chile\TopoDistTURF\histogram5.pdf", as(pdf) name("Graph") replace
