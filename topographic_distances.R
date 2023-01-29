@@ -100,7 +100,7 @@ for (j in 1:nrow(df)) {
                c(df$xcoord[j], df$ycoord[j], 
                  df$xcoord_j[j], df$ycoord_j[j]))
   colnames(xy) <- c("longitude", "latitude")
-  tdist <- topoDist(elevation, xy, paths = FALSE)
+  tdist <- topoDist(elevation, xy, directions = 4, paths = FALSE)
   
   df_dist <- df_dist %>%
     tibble::add_row(id_area = as.integer(df[j, 2]),
@@ -109,7 +109,7 @@ for (j in 1:nrow(df)) {
   perc <- (j/nrow(df))*100
   print(paste("Row = ",j))
   print(paste(perc,"%"))
-  write.csv(df_dist,"C:/Users/fequezad/OneDrive/UMass/Dissertation/02 TURFs Chile/TopoDist/data_td6.csv", row.names = FALSE)
+  write.csv(df_dist,"C:/Users/fequezad/OneDrive/UMass/Dissertation/02 TURFs Chile/TopoDistTURF/data_td6.csv", row.names = FALSE)
 }
 
 rm(df_dist, df, j)
